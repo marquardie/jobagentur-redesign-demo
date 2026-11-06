@@ -185,6 +185,29 @@ details p{padding:0 0 22px;color:var(--muted);max-width:64ch}
 .consent{display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-size:.9rem;color:var(--muted)}
 .consent input{margin-top:5px;accent-color:var(--red)}
 .actions{display:flex;justify-content:space-between;margin-top:26px;gap:12px}
+.form{min-height:420px}
+.qprog{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-bottom:12px}
+.qprog i{display:block;height:100%;background:var(--red);transition:width .3s}
+.qmeta{display:flex;justify-content:space-between;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:22px}
+.qt{font-size:1.45rem;line-height:1.2;margin-bottom:8px}
+.qopt{font-style:normal;font-size:.9rem;color:var(--muted);font-weight:500}
+.qhint{color:var(--muted);font-size:.92rem;margin-bottom:6px}
+.field textarea{width:100%;font:inherit;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;resize:vertical}
+.field textarea:focus{border-color:var(--ink);outline:0;box-shadow:0 0 0 3px rgba(255,206,0,.55)}
+.field.bad textarea{border-color:var(--red)}
+.choices{display:grid;gap:10px;margin-top:16px}
+.choices.cols{grid-template-columns:1fr 1fr}
+.opt{font:inherit;text-align:left;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink)}
+.opt.on{border-color:var(--ink);background:var(--gold);font-weight:600}
+.opt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.qinfo{margin:14px 0 0;padding-left:20px;display:grid;gap:10px;color:#333}
+.rev{margin-top:14px;max-height:380px;overflow:auto;border-top:1px solid var(--line)}
+.rv{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.rv small{display:block;color:var(--muted);font-size:.8rem}
+.rv b{display:block;font-weight:600;overflow-wrap:anywhere}
+.lnk{font:inherit;font-weight:600;color:var(--red);background:none;border:0;cursor:pointer;text-decoration:underline;flex:none}
+@media(max-width:600px){.choices.cols{grid-template-columns:1fr 1fr}.qt{font-size:1.25rem}}
 .done{text-align:center;padding:30px 10px}
 .done .tick{width:64px;height:64px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-size:1.8rem;margin:0 auto 18px}
 .contact{margin-top:32px;display:grid;gap:18px;color:#cfcfcf}
@@ -459,33 +482,7 @@ footer a:hover{color:#fff}
         <div><b>Office</b>Şirinpark Apartmanı No 3/1, Şirinyalı Mah. 1519 Sok., Muratpaşa / Antalya, 07160, Türkiye</div>
       </div>
     </div>
-    <form class="form" id="form" novalidate>
-      <div class="steps" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-      <div class="fstep" data-s="1">
-        <h3>About you</h3>
-        <div class="row2">
-          <div class="field"><label for="fn">First name</label><input id="fn" name="fn" autocomplete="given-name" required><div class="err">Enter your first name.</div></div>
-          <div class="field"><label for="ln">Last name</label><input id="ln" name="ln" autocomplete="family-name" required><div class="err">Enter your last name.</div></div>
-        </div>
-        <div class="field"><label for="em">Email</label><input id="em" name="em" type="email" autocomplete="email" required><div class="err">Enter a valid email address.</div></div>
-        <div class="field"><label for="ph">WhatsApp number</label><input id="ph" name="ph" type="tel" autocomplete="tel" required><div class="err">Enter a phone number.</div></div>
-      </div>
-      <div class="fstep" data-s="2" hidden>
-        <h3>Your studies</h3>
-        <div class="field"><label for="un">University</label><input id="un" name="un" required><div class="err">Enter your university.</div></div>
-        <div class="field"><label for="fi">Field of study</label><input id="fi" name="fi" required><div class="err">Enter your field of study.</div></div>
-        <div class="field"><label for="lv">English or German level</label>
-          <select id="lv" name="lv" required><option value="">Choose one</option><option>A2</option><option>B1</option><option>B2</option><option>C1 or higher</option></select><div class="err">Choose your language level.</div></div>
-      </div>
-      <div class="fstep" data-s="3" hidden>
-        <h3>CV and consent</h3>
-        <div class="field"><label for="cv">Upload your CV</label><div class="file"><input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" required><label for="cv" class="file-btn">Choose file</label><span class="file-name" id="cvname">No file chosen (PDF or Word)</span></div><div class="err">Attach your CV (PDF or Word).</div></div>
-        <label class="consent"><input type="checkbox" id="ok" required><span>I agree that Jobagentur TR may store my details to contact me about jobs. I've read the privacy notice.</span></label>
-        <div class="field" id="okf"><div class="err">Please confirm to continue.</div></div>
-      </div>
-      <div class="actions"><button type="button" class="btn btn--line" id="back" hidden>Back</button><button type="submit" class="btn btn--red" id="next" style="margin-left:auto">Next</button></div>
-      <div class="done" id="done" hidden><div class="tick">✓</div><h3>You're on the list</h3><p style="color:var(--muted);margin-top:8px">We'll review your pre-registration and contact you when a project fits.</p></div>
-    </form>
+    <form class="form" id="form" novalidate></form>
   </div>
 </section>
 
@@ -891,29 +888,153 @@ qs.forEach(q=>q.querySelectorAll('button').forEach(b=>b.addEventListener('click'
 // photo strip from gallery data
 if(window.GALLERY){const s=document.getElementById('strip');[20,2,62,36].forEach(i=>{const im=new Image();im.src=GALLERY.src(i);im.alt='Students during their summer in Germany';im.loading='lazy';s.appendChild(im)})}
 
-// multi-step form
-const form=document.getElementById('form'),steps=[...form.querySelectorAll('.fstep')],bars=[...form.querySelectorAll('.steps i')],back=document.getElementById('back'),next=document.getElementById('next');
-let cur=0;
-function show(){steps.forEach((s,i)=>s.hidden=i!==cur);bars.forEach((b,i)=>b.classList.toggle('on',i<=cur));back.hidden=cur===0;next.textContent=T(cur===2?'Send pre-registration':'Next')}
-function valid(){
-  let ok=true;
-  steps[cur].querySelectorAll('input[required],select[required]').forEach(el=>{
-    const good=el.type==='checkbox'?el.checked:el.type==='email'?/^\S+@\S+\.\S+$/.test(el.value):el.type==='file'?el.files.length>0:el.value.trim()!=='';
-    if(el.type==='checkbox'){const f=document.getElementById('okf');f.classList.toggle('bad',!good)}
-    else el.closest('.field').classList.toggle('bad',!good);
-    if(!good)ok=false;
-  });
-  return ok;
+// One-question-at-a-time application form (fields taken from the current Zoho form)
+(function(){
+const form=document.getElementById('form');
+const A={},F={};let qi=0,finished=false,review=false;
+const LI={en:0,tr:1,de:2,uk:3};
+const L=a=>a[LI[window.LANG]||0];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const U={
+ back:['Back','Geri','Zurück','Назад'],next:['Next','İleri','Weiter','Далі'],send:['Send application','Başvuruyu gönder','Bewerbung absenden','Надіслати заявку'],
+ skip:['Skip','Atla','Überspringen','Пропустити'],opt:['optional','isteğe bağlı','optional','необов’язково'],
+ req:['Please answer this question.','Lütfen bu soruyu yanıtlayın.','Bitte beantworten Sie diese Frage.','Будь ласка, дайте відповідь.'],
+ mail:['Enter a valid email address.','Geçerli bir e-posta adresi girin.','Bitte geben Sie eine gültige E-Mail-Adresse ein.','Введіть дійсну електронну адресу.'],
+ tel:['Enter the number with country code, e.g. +90 5…','Ülke koduyla birlikte girin, ör. +90 5…','Mit Ländervorwahl eingeben, z. B. +90 5…','Введіть номер із кодом країни, напр. +90 5…'],
+ dts:['The end date must be after the start date.','Bitiş tarihi başlangıçtan sonra olmalı.','Das Enddatum muss nach dem Startdatum liegen.','Дата закінчення має бути після початку.'],
+ yes:['Yes','Evet','Ja','Так'],no:['No','Hayır','Nein','Ні'],
+ choose:['Choose file','Dosya seç','Datei wählen','Обрати файл'],nofile:['No file chosen','Dosya seçilmedi','Keine Datei gewählt','Файл не обрано'],
+ review:['Check your answers','Yanıtlarınızı kontrol edin','Prüfen Sie Ihre Angaben','Перевірте відповіді'],
+ reviewp:['Tap Edit to change anything, then send.','Değiştirmek için Düzenle’ye dokunun, sonra gönderin.','Mit „Ändern“ können Sie Angaben korrigieren, dann absenden.','Натисніть «Змінити», щоб виправити, потім надішліть.'],
+ edit:['Edit','Düzenle','Ändern','Змінити'],empty:['—','—','—','—'],
+ doneh:['Application received','Başvurunuz alındı','Bewerbung erhalten','Заявку отримано'],
+ donep:['Thank you. We will review your application and contact you on WhatsApp. (Demo: nothing was sent.)','Teşekkürler. Başvurunuzu inceleyip WhatsApp’tan size ulaşacağız. (Demo: hiçbir şey gönderilmedi.)','Danke. Wir prüfen Ihre Bewerbung und melden uns per WhatsApp. (Demo: es wurde nichts gesendet.)','Дякуємо. Ми розглянемо заявку й зв’яжемося в WhatsApp. (Демо: нічого не надіслано.)'],
+ of:['of','/','von','з']
+};
+const G=[['About you','Sizin hakkınızda','Zu Ihrer Person','Про вас'],['Travel document and languages','Seyahat belgesi ve diller','Reisedokument und Sprachen','Документ і мови'],['Your studies','Eğitiminiz','Ihr Studium','Навчання'],['Availability and experience','Müsaitlik ve deneyim','Verfügbarkeit und Erfahrung','Доступність і досвід'],['Program terms','Program koşulları','Programmbedingungen','Умови програми'],['Documents and consent','Belgeler ve onay','Dokumente und Einwilligung','Документи та згода']];
+const LV=[['No knowledge','Hiç yok','Keine Kenntnisse','Немає'],['A1','A1','A1','A1'],['A2','A2','A2','A2'],['B1','B1','B1','B1'],['B2','B2','B2','B2'],['C1','C1','C1','C1'],['C2','C2','C2','C2'],['Native speaker','Ana dil','Muttersprache','Рідна мова']];
+const YN=[U.yes,U.no];
+const Q=[
+{id:'fn',g:0,t:'text',ac:'given-name',req:1,l:['What is your first name?','Adınız nedir?','Wie lautet Ihr Vorname?','Як вас звати?'],h:['As written in your passport.','Pasaportta yazdığı gibi.','Wie im Reisepass.','Як у паспорті.']},
+{id:'ln',g:0,t:'text',ac:'family-name',req:1,l:['And your last name?','Soyadınız?','Und Ihr Nachname?','Ваше прізвище?']},
+{id:'dob',g:0,t:'date',req:1,l:['Date of birth','Doğum tarihiniz','Geburtsdatum','Дата народження']},
+{id:'sex',g:0,t:'choice',req:1,l:['Gender','Cinsiyet','Geschlecht','Стать'],o:[['Male','Erkek','Männlich','Чоловіча'],['Female','Kadın','Weiblich','Жіноча'],['Diverse','Diğer','Divers','Інша'],['Prefer not to say','Belirtmek istemiyorum','Keine Angabe','Не вказувати']]},
+{id:'nat',g:0,t:'text',ac:'country-name',req:1,l:['Nationality','Uyruğunuz','Staatsangehörigkeit','Громадянство']},
+{id:'res',g:0,t:'text',ac:'country-name',req:1,l:['Country where you live now','Şu an yaşadığınız ülke','Aktuelles Wohnsitzland','Країна проживання зараз']},
+{id:'em',g:0,t:'email',ac:'email',req:1,l:['Your email address','E-posta adresiniz','Ihre E-Mail-Adresse','Ваша електронна адреса'],h:['Use your personal email. Every applicant needs their own.','Kişisel e-postanızı kullanın. Her başvuranın kendi adresi olmalı.','Bitte persönliche E-Mail verwenden. Jeder Bewerber braucht eine eigene.','Вкажіть особисту пошту. У кожного кандидата має бути своя.']},
+{id:'wa',g:0,t:'tel',ac:'tel',req:1,l:['Your WhatsApp number','WhatsApp numaranız','Ihre WhatsApp-Nummer','Ваш номер WhatsApp'],h:['Include the country code, for example +90 5…','Ülke koduyla birlikte, örn. +90 5…','Mit Ländervorwahl, z. B. +90 5…','З кодом країни, напр. +90 5…']},
+{id:'doc',g:1,t:'choice',req:1,l:['Which travel document do you have now?','Şu an hangi seyahat belgesine sahipsiniz?','Welches Reisedokument besitzen Sie aktuell?','Який у вас зараз документ для подорожей?'],o:[['A Turkish green passport','Türk yeşil pasaportu','Einen türkischen grünen Reisepass','Турецький зелений паспорт'],['Another valid national passport','Başka geçerli bir ulusal pasaport','Einen anderen gültigen nationalen Reisepass','Інший дійсний національний паспорт'],['A valid EU/EEA or Swiss passport','Geçerli bir AB/AEA veya İsviçre pasaportu','Einen gültigen Pass eines EU-/EWR-Staates oder der Schweiz','Дійсний паспорт ЄС/ЄЕЗ або Швейцарії'],['My passport has been applied for','Pasaportum için başvuru yapıldı','Mein Reisepass wurde bereits beantragt','Паспорт уже замовлено'],['I do not have a valid passport yet','Henüz geçerli pasaportum yok','Ich besitze noch keinen gültigen Reisepass','Дійсного паспорта ще немає']]},
+{id:'en',g:1,t:'choice',req:1,l:['Your English level','İngilizce seviyeniz','Ihre Englischkenntnisse','Ваш рівень англійської'],o:LV,cols:1},
+{id:'de',g:1,t:'choice',req:1,l:['Your German level','Almanca seviyeniz','Ihre Deutschkenntnisse','Ваш рівень німецької'],o:LV,cols:1},
+{id:'ol',g:1,t:'text',l:['Other languages','Diğer diller','Weitere Sprachen','Інші мови'],h:['Optional. Example: Spanish – native, French – B1','İsteğe bağlı. Örnek: İspanyolca – ana dil, Fransızca – B1','Optional. Beispiel: Spanisch – Muttersprache, Französisch – B1','Необов’язково. Напр.: іспанська – рідна, французька – B1']},
+{id:'un',g:2,t:'text',req:1,l:['University name','Üniversitenin adı','Name der Universität','Назва університету']},
+{id:'uc',g:2,t:'text',req:1,l:['University city','Üniversitenin bulunduğu şehir','Ort der Universität','Місто університету']},
+{id:'uk',g:2,t:'text',req:1,l:['University country','Üniversitenin bulunduğu ülke','Land der Universität','Країна університету']},
+{id:'fs',g:2,t:'text',req:1,l:['Field of study','Bölümünüz','Studienfach','Спеціальність']},
+{id:'vs',g:2,t:'date',req:1,l:['When do your official semester holidays start?','Resmi yarıyıl tatiliniz ne zaman başlıyor?','Wann beginnen Ihre offiziellen Semesterferien?','Коли починаються офіційні канікули?'],h:['Use your university’s official academic calendar.','Üniversitenizin resmi akademik takvimini kullanın.','Nach dem offiziellen Kalender Ihrer Universität.','За офіційним календарем університету.']},
+{id:'ve',g:2,t:'date',req:1,after:'vs',l:['When do they end?','Ne zaman bitiyor?','Wann enden sie?','Коли закінчуються?']},
+{id:'grad',g:2,t:'date',req:1,l:['Expected graduation date','Tahmini mezuniyet tarihi','Voraussichtliches Abschlussdatum','Очікувана дата закінчення навчання']},
+{id:'as',g:3,t:'date',req:1,l:['Earliest date you could work in Germany','Almanya’da en erken çalışmaya başlayabileceğiniz tarih','Frühester möglicher Arbeitsbeginn in Deutschland','Найраніша дата початку роботи в Німеччині'],h:['The longer and more flexible you are, the better your chances. Ideal: 80–90 days in a row.','Ne kadar uzun ve esnek olursanız şansınız o kadar artar. İdeal: art arda 80–90 gün.','Je länger und flexibler, desto größer die Chancen. Ideal: 80–90 Tage am Stück.','Що довше й гнучкіше, то більші шанси. Ідеально: 80–90 днів поспіль.']},
+{id:'ae',g:3,t:'date',req:1,after:'as',l:['Latest date you could work in Germany','Almanya’da en geç çalışabileceğiniz tarih','Spätestes mögliches Arbeitsende in Deutschland','Найпізніша дата роботи в Німеччині']},
+{id:'exp',g:3,t:'area',req:1,l:['Your work experience so far','Şimdiye kadarki iş deneyiminiz','Ihre bisherige Arbeitserfahrung','Ваш досвід роботи'],h:['Briefly describe your jobs and tasks. No experience? Write “None”.','Kısaca işlerinizi ve görevlerinizi anlatın. Deneyiminiz yoksa “Yok” yazın.','Beschreiben Sie kurz Ihre Tätigkeiten. Keine Erfahrung? Schreiben Sie „Keine“.','Коротко опишіть роботу. Немає досвіду? Напишіть «Немає».']},
+{id:'why',g:3,t:'area',req:1,l:['Why are you a good fit for a holiday job in Germany?','Almanya’da tatil işi için neden uygunsunuz?','Warum sind Sie für eine Ferienbeschäftigung in Deutschland geeignet?','Чому ви підходите для канікулярної роботи в Німеччині?'],h:['The program needs reliability, responsibility, flexibility and readiness for physical work and for living and working with new people.','Program güvenilirlik, sorumluluk, esneklik, fiziksel işe ve yeni insanlarla yaşayıp çalışmaya hazır olmayı gerektirir.','Das Programm erfordert Zuverlässigkeit, Verantwortungsbewusstsein, Flexibilität und Bereitschaft zu körperlicher Arbeit.','Програма вимагає надійності, відповідальності, гнучкості та готовності до фізичної роботи.']},
+{id:'dl',g:3,t:'choice',req:1,l:['Do you have a valid driving licence and driving experience?','Geçerli ehliyetiniz ve sürüş deneyiminiz var mı?','Besitzen Sie einen gültigen Führerschein mit Fahrerfahrung?','Чи є у вас дійсні права та досвід водіння?'],h:['Only used to match you with suitable projects. A licence is not required.','Yalnızca uygun projelerle eşleştirmek için. Ehliyet şart değildir.','Dient nur der Zuordnung zu Projekten. Kein Führerschein nötig.','Лише для підбору проєктів. Права не обов’язкові.'],o:[['No','Hayır','Nein','Ні'],['Yes, manual and automatic','Evet, manuel ve otomatik','Ja, Automatik und Schaltung','Так, механіка й автомат'],['Yes, automatic only','Evet, yalnızca otomatik','Ja, nur Automatik','Так, лише автомат']]},
+{id:'note',g:3,t:'area',l:['Anything else we should know?','Bilmemizi istediğiniz başka bir şey var mı?','Möchten Sie uns noch etwas mitteilen?','Чи є ще щось, що нам варто знати?'],h:['Optional. About your application, your availability or placement.','İsteğe bağlı. Başvurunuz, müsaitliğiniz veya yerleştirme ile ilgili.','Optional. Zu Bewerbung, Verfügbarkeit oder Zuordnung.','Необов’язково. Про заявку, доступність чи розподіл.']},
+{id:'info',g:4,t:'info',l:['Good to know before you continue','Devam etmeden önce bilmeniz gerekenler','Wichtig, bevor Sie weitermachen','Важливо перед продовженням'],items:[
+ ['Pay: at least €15.87 gross per hour from 1 April 2027. At least 30 hours a week are guaranteed.','Ücret: 1 Nisan 2027’den itibaren saatlik en az 15,87 € brüt. Haftada en az 30 saat garanti.','Lohn: ab 1. April 2027 mindestens 15,87 € brutto pro Stunde. Mindestens 30 Wochenstunden garantiert.','Оплата: від 1 квітня 2027 щонайменше 15,87 € брутто на годину. Гарантовано мінімум 30 годин на тиждень.'],
+ ['Housing is arranged by the employer. It costs at most €20 per night or €600 per month.','Konaklamayı işveren ayarlar. En fazla gecelik 20 € veya aylık 600 €.','Die Unterkunft organisiert der Arbeitgeber. Maximal 20 € pro Nacht bzw. 600 € pro Monat.','Житло організовує роботодавець. Максимум 20 € за ніч або 600 € на місяць.'],
+ ['Travel costs and foreign health insurance are paid by you.','Yol masrafları ve yurt dışı sağlık sigortası size aittir.','Reisekosten und Auslandskrankenversicherung tragen Sie selbst.','Витрати на дорогу та закордонне медстрахування оплачуєте ви.'],
+ ['You can be placed anywhere in Germany. A specific job, employer or city cannot be guaranteed.','Almanya’nın herhangi bir yerine yerleştirilebilirsiniz. Belirli bir iş, işveren veya şehir garanti edilemez.','Der Einsatz ist deutschlandweit möglich. Bestimmte Tätigkeit, Arbeitgeber oder Ort sind nicht garantiert.','Вас можуть розмістити в будь-якій частині Німеччини. Конкретну роботу, роботодавця чи місто гарантувати не можна.'],
+ ['Typical areas: warehouse and logistics, production and assembly, food processing, airport services.','Olası alanlar: depo ve lojistik, üretim ve montaj, gıda işleme, havalimanı hizmetleri.','Mögliche Bereiche: Lager und Logistik, Produktion und Montage, Lebensmittelverarbeitung, Flughafendienste.','Можливі сфери: склад і логістика, виробництво й монтаж, харчова промисловість, аеропорт.']]},
+{id:'flex',g:4,t:'choice',req:1,l:['Are you ready to work flexibly in these areas?','Bu alanlarda esnek çalışmaya hazır mısınız?','Sind Sie bereit, in diesen Bereichen flexibel zu arbeiten?','Чи готові ви гнучко працювати в цих сферах?'],o:[['Yes, I understand and agree','Evet, anladım ve kabul ediyorum','Ja, ich habe es verstanden und bin einverstanden','Так, розумію та погоджуюсь'],['No, I will explain in the next step','Hayır, bir sonraki adımda açıklayacağım','Nein, ich erläutere es im nächsten Schritt','Ні, поясню на наступному кроці']]},
+{id:'wr',g:4,t:'area',req:1,when:()=>A.flex===1,l:['What should we discuss about the work?','İşle ilgili neyi konuşmamız gerekiyor?','Was sollen wir zur Arbeit besprechen?','Що нам потрібно обговорити щодо роботи?'],h:['E.g. long standing, lifting, frequent bending, night work. No medical diagnoses needed.','Örn. uzun süre ayakta kalma, kaldırma, sık eğilme, gece çalışması. Tıbbi teşhis gerekmez.','z. B. langes Stehen, Heben, Bücken, Nachtarbeit. Keine Diagnosen nötig.','Напр. тривале стояння, підйом ваги, нахили, нічна робота. Діагнози вказувати не треба.']},
+{id:'pw',g:4,t:'area',l:['Any wishes for your placement?','Yerleştirme ile ilgili isteğiniz var mı?','Haben Sie Platzierungswünsche?','Чи є побажання щодо розподілу?'],h:['Optional. Job area, location, housing or working with friends. We try to consider them but cannot guarantee.','İsteğe bağlı. İş alanı, konum, konaklama veya arkadaşlarla birlikte. Elimizden geleni yaparız ama garanti edemeyiz.','Optional. Einsatzbereich, Ort, Unterkunft oder Freunde. Wir berücksichtigen sie nach Möglichkeit, ohne Garantie.','Необов’язково. Сфера, місце, житло або разом із друзями. Ми врахуємо за можливості, але гарантій немає.']},
+{id:'tc',g:4,t:'choice',req:1,l:['Do you confirm the program terms?','Program koşullarını onaylıyor musunuz?','Bestätigen Sie die Programmbedingungen?','Чи підтверджуєте ви умови програми?'],h:['I have read and understood the information on working time, pay, housing, holidays and project assignment. Conditions vary by project and I am available anywhere in Germany.','Çalışma süresi, ücret, konaklama, izin ve proje ataması bilgilerini okudum ve anladım. Koşullar projeye göre değişebilir ve Almanya’nın her yerinde çalışabilirim.','Ich habe die Informationen zu Arbeitszeit, Vergütung, Unterkunft, Urlaub und Projektzuordnung gelesen. Die Bedingungen variieren, und ich bin deutschlandweit einsatzbereit.','Я прочитав(ла) і зрозумів(ла) інформацію про робочий час, оплату, житло, відпустку та розподіл. Умови залежать від проєкту, я готовий(а) працювати по всій Німеччині.'],o:YN},
+{id:'cv',g:5,t:'file',req:1,accept:'.pdf',l:['Upload your CV','Özgeçmişinizi yükleyin','Lebenslauf hochladen','Завантажте резюме'],h:['PDF. It should include your studies, languages and any work experience.','PDF. Eğitim, dil ve varsa iş deneyiminizi içermeli.','PDF. Mit Studium, Sprachkenntnissen und ggf. Arbeitserfahrung.','PDF. Із навчанням, мовами та досвідом роботи, якщо є.']},
+{id:'ph',g:5,t:'file',accept:'.jpg,.jpeg,.png',l:['Upload a portrait photo','Vesikalık fotoğraf yükleyin','Porträtfoto hochladen','Завантажте портретне фото'],h:['Optional. JPG or PNG, face fully visible, no strong filters.','İsteğe bağlı. JPG veya PNG, yüz tamamen görünür, ağır filtre yok.','Optional. JPG oder PNG, Gesicht gut sichtbar, ohne starke Filter.','Необов’язково. JPG або PNG, обличчя добре видно, без сильних фільтрів.']},
+{id:'cons',g:5,t:'consent',l:['Consent','Onay','Einwilligung','Згода'],c:[
+ {id:'c1',req:1,l:['I authorise TR Personal and my agency to review and prepare my application, to share my data and documents and the processing status with each other, and to contact me by email, phone or WhatsApp.','TR Personal’ı ve acentemi başvurumu incelemek ve hazırlamakla görevlendiriyorum; verilerimi, belgelerimi ve işlem durumunu birbirleriyle paylaşabilir, bana e-posta, telefon veya WhatsApp ile ulaşabilirler.','Ich beauftrage TR Personal und meine Agentur mit der Prüfung und Vorbereitung meiner Bewerbung, dem Austausch meiner Daten, Dokumente und des Bearbeitungsstatus sowie der Kontaktaufnahme per E-Mail, Telefon oder WhatsApp.','Я доручаю TR Personal та моєму агентству розглянути й підготувати мою заявку, обмінюватися моїми даними, документами та статусом і зв’язуватися зі мною електронною поштою, телефоном або в WhatsApp.']},
+ {id:'c2',req:1,priv:1,l:['I have read the privacy notice of TR Personal.','TR Personal gizlilik bildirimini okudum.','Ich habe die Datenschutzerklärung von TR Personal gelesen.','Я прочитав(ла) повідомлення про конфіденційність TR Personal.']},
+ {id:'c3',l:['Optional: I agree that TR Personal may keep my application data for up to 24 months in the applicant pool and inform me about suitable jobs. I can withdraw this at any time.','İsteğe bağlı: TR Personal’ın başvuru verilerimi 24 aya kadar aday havuzunda saklamasını ve uygun işleri bana bildirmesini kabul ediyorum. Bunu istediğim zaman geri çekebilirim.','Optional: Ich willige ein, dass TR Personal meine Daten bis zu 24 Monate im Bewerberpool speichert und mich über passende Stellen informiert. Widerruf jederzeit möglich.','Необов’язково: я погоджуюсь, що TR Personal зберігатиме мої дані до 24 місяців у пулі кандидатів і повідомлятиме про відповідні вакансії. Згоду можна відкликати будь-коли.']}]}
+];
+const vis=()=>Q.filter(q=>!q.when||q.when());
+function val(q){
+ const v=A[q.id];
+ if(q.t==='consent')return q.c.every(c=>!c.req||A[c.id])?'':U.req;
+ if(q.t==='info')return '';
+ if(q.t==='choice'){if(v===undefined)return q.req?U.req:'';if(q.id==='tc'&&v!==0)return ['You need to confirm the terms to apply.','Başvurmak için koşulları onaylamanız gerekir.','Zum Bewerben müssen Sie die Bedingungen bestätigen.','Щоб подати заявку, потрібно підтвердити умови.'];return ''}
+ if(q.t==='file'){return q.req&&!F[q.id]?U.req:''}
+ const s=(v||'').trim();
+ if(!s)return q.req?U.req:'';
+ if(q.t==='email'&&!/^\S+@\S+\.\S+$/.test(s))return U.mail;
+ if(q.t==='tel'&&(s.replace(/\D/g,'').length<7||!/^\+?[\d\s\-()]+$/.test(s)))return U.tel;
+ if(q.after&&A[q.after]&&s<A[q.after])return U.dts;
+ return '';
+}
+function show(){
+ const V=vis();if(qi>V.length-1)qi=V.length-1;
+ const q=V[qi],total=V.length+1;
+ let h='<div class="qprog" aria-hidden="true"><i style="width:'+Math.round((qi+1)/total*100)+'%"></i></div>';
+ h+='<div class="qmeta"><span>'+esc(L(G[q.g]))+'</span><span>'+(qi+1)+' '+L(U.of)+' '+total+'</span></div>';
+ h+='<div class="qbody" id="qbody">'+render(q)+'</div>';
+ h+='<div class="actions"><button type="button" class="btn btn--line" id="back"'+(qi===0?' hidden':'')+'>'+esc(L(U.back))+'</button><button type="submit" class="btn btn--red" id="next" style="margin-left:auto">'+esc(L(U.next))+'</button></div>';
+ form.innerHTML=h;bind(q);
+ if(window.__qfocus){const e=form.querySelector('input:not([type=checkbox]):not([type=file]),textarea');if(e)e.focus({preventScroll:true})}
+}
+function render(q){
+ const lab=esc(L(q.l)),hint=q.h?'<p class="qhint">'+esc(L(q.h))+'</p>':'';
+ const opt=(!q.req&&q.t!=='info'&&q.t!=='consent'?' <em class="qopt">('+esc(L(U.opt))+')</em>':'');
+ let b='<h3 class="qt">'+lab+opt+'</h3>'+hint;
+ if(q.t==='info')return '<h3 class="qt">'+lab+'</h3><ul class="qinfo">'+q.items.map(i=>'<li>'+esc(L(i))+'</li>').join('')+'</ul>';
+ if(q.t==='choice')return b+'<div class="choices'+(q.cols?' cols':'')+'" role="radiogroup">'+q.o.map((o,i)=>'<button type="button" class="opt'+(A[q.id]===i?' on':'')+'" role="radio" aria-checked="'+(A[q.id]===i)+'" data-i="'+i+'">'+esc(L(o))+'</button>').join('')+'</div><div class="field" id="ef"><div class="err"></div></div>';
+ if(q.t==='file')return b+'<div class="field" id="ef"><div class="file"><input id="fi" type="file" accept="'+q.accept+'"><label for="fi" class="file-btn">'+esc(L(U.choose))+'</label><span class="file-name" id="fn">'+esc(F[q.id]?F[q.id]:L(U.nofile))+'</span></div><div class="err"></div></div>';
+ if(q.t==='consent')return '<h3 class="qt">'+lab+'</h3>'+q.c.map(c=>'<label class="consent"><input type="checkbox" data-c="'+c.id+'"'+(A[c.id]?' checked':'')+'><span>'+esc(L(c.l))+(c.priv?' <a href="#legal">→</a>':'')+'</span></label>').join('')+'<div class="field" id="ef"><div class="err"></div></div>';
+ if(q.t==='area')return b+'<div class="field" id="ef"><textarea id="fi" rows="5">'+esc(A[q.id]||'')+'</textarea><div class="err"></div></div>';
+ const type=q.t==='tel'?'tel':q.t==='email'?'email':q.t==='date'?'date':'text';
+ return b+'<div class="field" id="ef"><input id="fi" type="'+type+'" value="'+esc(A[q.id]||'')+'"'+(q.ac?' autocomplete="'+q.ac+'"':'')+(q.t==='tel'?' inputmode="tel"':'')+'><div class="err"></div></div>';
+}
+function bind(q){
+ const ef=document.getElementById('ef'),fi=document.getElementById('fi');
+ const clr=()=>{if(ef)ef.classList.remove('bad')};
+ if(fi&&q.t!=='file')fi.addEventListener('input',()=>{A[q.id]=fi.value;clr()});
+ if(fi&&q.t==='file')fi.addEventListener('change',()=>{F[q.id]=fi.files[0]?fi.files[0].name:'';document.getElementById('fn').textContent=F[q.id]||L(U.nofile);clr()});
+ form.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{A[q.id]=+b.dataset.i;form.querySelectorAll('.opt').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-checked',on)});clr();setTimeout(()=>go(1,true),220)}));
+ form.querySelectorAll('[data-c]').forEach(c=>c.addEventListener('change',()=>{A[c.dataset.c]=c.checked;clr()}));
+ document.getElementById('back').addEventListener('click',()=>go(-1));
+}
+function err(q,m){const ef=document.getElementById('ef');if(!ef)return;ef.classList.add('bad');ef.querySelector('.err').textContent=L(m)}
+function go(d,fromChoice){
+ const V=vis(),q=V[qi];
+ if(d>0){const m=val(q);if(m){err(q,m);return}if(qi>=V.length-1){showReview();return}qi++}else qi=Math.max(0,qi-1);
+ window.__qfocus=true;show();
+ if(form.getBoundingClientRect().top<0)form.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function ansText(q){
+ if(q.t==='choice')return A[q.id]===undefined?'':L(q.o[A[q.id]]);
+ if(q.t==='file')return F[q.id]||'';
+ if(q.t==='consent')return q.c.filter(c=>A[c.id]).length+' / '+q.c.length;
+ if(q.t==='info')return null;
+ return (A[q.id]||'').trim();
+}
+function showReview(){
+ review=true;const V=vis();
+ let h='<div class="qprog"><i style="width:100%"></i></div><div class="qmeta"><span>'+esc(L(U.review))+'</span><span>'+(V.length+1)+' '+L(U.of)+' '+(V.length+1)+'</span></div><h3 class="qt">'+esc(L(U.review))+'</h3><p class="qhint">'+esc(L(U.reviewp))+'</p><div class="rev">';
+ V.forEach((q,i)=>{const t=ansText(q);if(t===null)return;h+='<div class="rv"><div><small>'+esc(L(q.l))+'</small><b>'+esc(t||L(U.empty))+'</b></div><button type="button" class="lnk" data-j="'+i+'">'+esc(L(U.edit))+'</button></div>'});
+ h+='</div><div class="actions"><button type="button" class="btn btn--line" id="back">'+esc(L(U.back))+'</button><button type="submit" class="btn btn--red" id="next" style="margin-left:auto">'+esc(L(U.send))+'</button></div>';
+ form.innerHTML=h;
+ form.querySelectorAll('[data-j]').forEach(b=>b.addEventListener('click',()=>{review=false;qi=+b.dataset.j;window.__qfocus=false;show();if(form.getBoundingClientRect().top<0)form.scrollIntoView({behavior:'smooth',block:'start'})}));
+ document.getElementById('back').addEventListener('click',()=>{review=false;qi=vis().length-1;window.__qfocus=false;show()});
+ if(form.getBoundingClientRect().top<0)form.scrollIntoView({behavior:'smooth',block:'start'});
 }
 form.addEventListener('submit',e=>{
-  e.preventDefault();
-  if(!valid())return;
-  if(cur<2){cur++;show();return}
-  steps.forEach(s=>s.hidden=true);form.querySelector('.actions').hidden=true;form.querySelector('.steps').hidden=true;document.getElementById('done').hidden=false;
+ e.preventDefault();
+ if(finished)return;
+ if(review){finished=true;form.innerHTML='<div class="done"><div class="tick">✓</div><h3>'+esc(L(U.doneh))+'</h3><p style="color:var(--muted);margin-top:8px">'+esc(L(U.donep))+'</p></div>';return}
+ go(1);
 });
-document.getElementById('cv').addEventListener('change',e=>{document.getElementById('cvname').textContent=e.target.files[0]?e.target.files[0].name:T('No file chosen (PDF or Word)')});
-back.addEventListener('click',()=>{cur--;show()});(window.__hooks=window.__hooks||[]).push(()=>{show();const c=document.getElementById('cv');if(!c.files.length)document.getElementById('cvname').textContent=T('No file chosen (PDF or Word)')});
-show();
+(window.__hooks=window.__hooks||[]).push(()=>{if(finished){form.querySelector('h3').textContent=L(U.doneh);form.querySelector('p').textContent=L(U.donep)}else if(review)showReview();else{window.__qfocus=false;show()}});
+window.__qfocus=false;show();
+})();
 
 document.querySelectorAll('[data-c]').forEach(b=>b.addEventListener('click',()=>document.getElementById('cookie').hidden=true));
 })();</script>
